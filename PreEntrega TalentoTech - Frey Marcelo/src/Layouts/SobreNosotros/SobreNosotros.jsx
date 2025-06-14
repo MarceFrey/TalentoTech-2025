@@ -1,11 +1,11 @@
 import Header from '../../components/Header/Header'
 import Footer from '../../components/Footer/Footer'
-
+import './SobreNosotros.css'
 const SobreNosotros = () => {
   return (
-    <div>
+    <div className='SobreNosotros-background'>
       <Header/>
-      <h1>SOBRE NOSOTROS</h1>
+
       <Footer/>
     </div>
   )

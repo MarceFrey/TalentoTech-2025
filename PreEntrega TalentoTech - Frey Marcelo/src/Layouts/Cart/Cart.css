@@ -1,1 +1,10 @@
-/*Aun no implementado, pensado para futuras mejoras*/
+.cart-background {
+    background-image: url('/public/portada2.png'); 
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

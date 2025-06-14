@@ -1,10 +1,10 @@
 import Header from '../../components/Header/Header'
 import Footer from '../../components/Footer/Footer'
-import './Contacto.css'
+import './Admin.css';
 
-const Contacto = () => {
+const Admin = () => {
   return (
-    <div className='contacto-background'>
+    <div className='admin-background'>
       <Header />
 
       <Footer />
@@ -12,4 +12,4 @@ const Contacto = () => {
   )
 }
 
-export default Contacto
+export default Admin

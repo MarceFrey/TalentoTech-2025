@@ -1,0 +1,65 @@
+/* Estilo base del contenedor */
+.detalle-container {
+    display: flex;
+    flex-direction: column;
+    background-color: #f9f9f9;
+    min-height: 80vh;
+    background-image: url('/public/portada2.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Tarjeta del producto */
+.detalle-tarjeta {
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Imagen del producto */
+.detalle-tarjeta-imagen {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+}
+
+/* Nombre del producto */
+.detalle-tarjeta-nombre {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 1rem 0 0.5rem;
+}
+
+/* Precio */
+.detalle-tarjeta-precio {
+    font-size: 1.25rem;
+    color: #4caf50;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .detalle-tarjeta {
+        padding: 1rem;
+    }
+
+    .detalle-tarjeta-nombre {
+        font-size: 1.3rem;
+    }
+
+    .detalle-tarjeta-precio {
+        font-size: 1.1rem;
+    }
+}

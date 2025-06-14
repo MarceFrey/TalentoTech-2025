@@ -4,12 +4,12 @@
   justify-content: center;
   gap: 24px;
   padding: 40px 20px;
-  background-color: #f8f9fa;
+  background-color: #f8f9fa00;
 }
 
 .tarjeta {
   width: 260px;
-  background-color: #fff;
+  background-color: #03030367;
   border-radius: 20px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
   overflow: hidden;
@@ -29,14 +29,14 @@
   width: 100%;
   height: 180px;
   object-fit: cover;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #0000007e;
 }
 
 .tarjeta-nombre {
   font-size: 1.2rem;
   font-weight: 600;
   margin: 16px 12px 8px;
-  color: #222;
+  color: #22222200;
   min-height: 50px;
 }
 
@@ -48,7 +48,7 @@
 
 .tarjeta-boton {
   background-color: #1e1e2f;
-  color: #fff;
+  color: #ffffff00;
   border: none;
   border-radius: 12px;
   padding: 10px 16px;

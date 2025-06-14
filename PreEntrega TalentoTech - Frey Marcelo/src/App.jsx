@@ -4,6 +4,10 @@ import Home from './Layouts/Home/Home';
 import AcercaDe from './Layouts/SobreNosotros/SobreNosotros';
 import Contacto from './Layouts/Contacto/Contacto';
 import Cart from './Layouts/Cart/Cart';
+import DetalleProducto from './Layouts/DetalleProducto/DetalleProducto';
+import Login from './Layouts/Login/Login';
+import RutaProtegida from './Layouts/Auth/RutaProtegida';
+import Admin from './Layouts/Admin/Admin';
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -11,6 +15,7 @@ function App() {
   const [error, setError] = useState(null);
   const [cart, setCart] = useState([]);
   const [mensaje, setMensaje] = useState(null);
+  const [isAuthenticated, setIsAuthenticated] = useState(true);
 
   useEffect(() => {
     fetch('https://68367e13664e72d28e40fb4a.mockapi.io/productos-ecommerce/productos')
@@ -52,6 +57,9 @@ function App() {
         <Route path="/acercade" element={<AcercaDe />} />
         <Route path="/contacto" element={<Contacto />} />
         <Route path="/carrito" element={<Cart carrito={cart} removeCart={removeCart} />} />
+        <Route path="/detalleproducto/:id" element={<DetalleProducto productos={products}/>} />
+        <Route path="/admin" element={<RutaProtegida isAuthenticated={isAuthenticated}> <Admin /> </RutaProtegida>}/>
+        <Route path="/login" element={<Login/>} />
       </Routes>
 
     </div>
