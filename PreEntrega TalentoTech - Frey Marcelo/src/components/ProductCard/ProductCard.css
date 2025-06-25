@@ -1,62 +1,93 @@
 .equipo-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 24px;
-  padding: 40px 20px;
-  background-color: #f8f9fa00;
+  padding: 40px;
+  background-color: #5723002a;
 }
 
 .tarjeta {
-  width: 260px;
-  background-color: #03030367;
-  border-radius: 20px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  background-color: #ffffff !important;
+  border-radius: 12px;
   overflow: hidden;
-  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  align-items: center;
 }
 
 .tarjeta:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.tarjeta-link {
+  text-decoration: none;
+  width: 100%;
+  text-align: center;
+  background: transparent;
+  display: block;
 }
 
 .tarjeta-imagen {
   width: 100%;
   height: 180px;
   object-fit: cover;
-  border-bottom: 1px solid #0000007e;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.tarjeta-info {
+  padding: 16px;
+  background: transparent;
 }
 
 .tarjeta-nombre {
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin: 16px 12px 8px;
-  color: #22222200;
-  min-height: 50px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 5px;
+  color: #fff; /* Blanco si usas fondo oscuro */
 }
 
 .tarjeta-precio {
   font-size: 1rem;
-  color: #444;
-  margin-bottom: 16px;
+  color: #ffce54;
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.tarjeta-cantidad {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 5px 0;
+}
+
+.btn {
+  border: none;
+  padding: 6px 10px;
+  font-size: 1rem;
+  background-color: #ddd;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.btn:hover {
+  background-color: #ccc;
 }
 
 .tarjeta-boton {
-  background-color: #1e1e2f;
-  color: #ffffff00;
+  background-color: #351e00;
+  color: #fff;
   border: none;
-  border-radius: 12px;
-  padding: 10px 16px;
-  margin: 0 16px 20px;
-  cursor: pointer;
+  padding: 10px 0;
+  width: 80%;
+  border-radius: 6px;
+  font-weight: 500;
+  margin-bottom: 16px;
   transition: background-color 0.3s ease;
 }
 
 .tarjeta-boton:hover {
-  background-color: #3a3a5e;
+  background-color: #5a3401;
 }

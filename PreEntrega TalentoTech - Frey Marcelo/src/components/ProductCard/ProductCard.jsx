@@ -21,25 +21,26 @@ function ProductCard({ productos, addToCart }) {
 
   return (
     <div className="equipo-container">
-      {productos.map((persona, index) => (
-        <Link to={`/detalleproducto/${persona.id}`} key={index}>
-          <div className="tarjeta">
-            <img src={persona.imagen} alt={persona.nombre} className="tarjeta-imagen" />
-            <p className="tarjeta-nombre">{persona.nombre}</p>
-            <p className="tarjeta-precio">${persona.precio}</p>
-
-            <div className="tarjeta-cantidad">
-              <button className="btn btn-restar" onClick={(e) => { e.preventDefault(); disminuirCantidad(persona.id); }}>-</button>
-              <span>{cantidad[persona.id] || 1}</span>
-              <button className="btn btn-sumar" onClick={(e) => { e.preventDefault(); aumentarCantidad(persona.id); }}>+</button>
+      {productos.map((producto) => (
+        <div className="tarjeta" key={producto.id}>
+          <Link to={`/detalleproducto/${producto.id}`} className="tarjeta-link">
+            <img src={producto.imagen} alt={producto.nombre} className="tarjeta-imagen" />
+            <div className="tarjeta-info">
+              <p className="tarjeta-nombre">{producto.nombre}</p>
+              <p className="tarjeta-precio">${producto.precio}</p>
             </div>
+          </Link>
 
-            <button className="btn btn-primary" onClick={(e) => {
-              e.preventDefault(); // evita que el link se active al hacer click
-              addToCart(persona);
-            }}>Agregar al carrito</button>
+          <div className="tarjeta-cantidad">
+            <button className="btn btn-restar" onClick={() => disminuirCantidad(producto.id)}>-</button>
+            <span>{cantidad[producto.id] || 1}</span>
+            <button className="btn btn-sumar" onClick={() => aumentarCantidad(producto.id)}>+</button>
           </div>
-        </Link>
+
+          <button className="tarjeta-boton" onClick={() => addToCart(producto)}>
+            Agregar al carrito
+          </button>
+        </div>
       ))}
     </div>
   );
