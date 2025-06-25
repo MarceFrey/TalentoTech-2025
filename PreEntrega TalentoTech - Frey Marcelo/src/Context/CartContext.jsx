@@ -21,26 +21,33 @@ export const CartProvider = ({ children }) => {
             .finally(() => setLoading(false));
     }, []);
 
-    const addToCart = (product) => {
+    const addToCart = (product, cantidadSeleccionada) => {
+        if (cantidadSeleccionada > product.stock) {
+            setMensaje("Cantidad supera el stock disponible");
+            setTimeout(() => setMensaje(null), 3000);
+            return;
+        }
+
         const yaEnCarrito = cart.some((item) => item.id === product.id);
 
         if (yaEnCarrito) {
             setMensaje("Este producto ya está en el carrito");
         } else {
-            setCart([...cart, product]);
+            setCart([...cart, { ...product, cantidad: cantidadSeleccionada }]);
             setMensaje("Producto agregado al carrito");
         }
 
         setTimeout(() => setMensaje(null), 3000);
     };
 
+
     const removeCart = (id) => {
         setCart(cart.filter(product => product.id !== id));
     };
-    
+
 
     return (
-        <CartContext.Provider value={{products, addToCart, error, loading, cart, removeCart, mensaje}}>
+        <CartContext.Provider value={{ products, addToCart, error, loading, cart, removeCart, mensaje }}>
             {children}
         </CartContext.Provider>
     )

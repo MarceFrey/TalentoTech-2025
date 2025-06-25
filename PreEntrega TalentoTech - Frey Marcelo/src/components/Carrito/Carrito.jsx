@@ -11,7 +11,7 @@ function Cart({ cart, removeCart }) {
             <div className="tarjeta" key={index}>
               <img src={item.imagen} className="tarjeta-imagen" alt={item.nombre} />
               <p className="tarjeta-nombre">{item.nombre}</p>
-              <p className="tarjeta-precio">${item.precio}</p>
+              <p className="tarjeta-precio">${item.precio} x {item.cantidad}</p>
               <button
                 className="btn btn-danger"
                 onClick={() => removeCart(item.id)}

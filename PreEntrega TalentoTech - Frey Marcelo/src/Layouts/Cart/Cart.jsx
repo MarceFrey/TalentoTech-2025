@@ -7,7 +7,9 @@ const Cart = ({ carrito, removeCart }) => {
   return (
     <div className='cart-background'>
       <Header />
-      <Carrrito cart={carrito} removeCart={removeCart} />
+      <div className='cart-content'>
+        <Carrrito cart={carrito} removeCart={removeCart} />
+      </div>
       <Footer />
     </div>
   )

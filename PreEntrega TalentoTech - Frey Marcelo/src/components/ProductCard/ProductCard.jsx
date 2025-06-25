@@ -28,6 +28,7 @@ function ProductCard({ productos, addToCart }) {
             <div className="tarjeta-info">
               <p className="tarjeta-nombre">{producto.nombre}</p>
               <p className="tarjeta-precio">${producto.precio}</p>
+              <p className="tarjeta-stock">Disponibles: {producto.stock}</p>
             </div>
           </Link>
 
@@ -37,9 +38,13 @@ function ProductCard({ productos, addToCart }) {
             <button className="btn btn-sumar" onClick={() => aumentarCantidad(producto.id)}>+</button>
           </div>
 
-          <button className="tarjeta-boton" onClick={() => addToCart(producto)}>
+          <button
+            className="tarjeta-boton"
+            onClick={() => addToCart(producto, cantidad[producto.id] || 1)}
+          >
             Agregar al carrito
           </button>
+
         </div>
       ))}
     </div>
