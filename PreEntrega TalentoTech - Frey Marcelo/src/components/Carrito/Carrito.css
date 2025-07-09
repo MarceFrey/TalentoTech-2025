@@ -5,6 +5,13 @@
   gap: 20px;
   padding: 20px;
 }
+.title{
+  color: #fff;
+}
+
+.empty_cart{
+  color: #ffffff;
+}
 
 .tarjeta {
   width: 250px;
@@ -29,7 +36,7 @@
 .tarjeta-nombre {
   font-size: 1.2rem;
   margin: 10px 0 5px;
-  color: #333;
+  color: z#333;
 }
 
 .tarjeta-precio {

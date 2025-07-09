@@ -1,27 +1,14 @@
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useContext} from 'react';
+import { CartContext } from '../../Context/CartContext';
 import './ProductCard.css';
 
-function ProductCard({ productos, addToCart }) {
-  const [cantidad, setCantidad] = useState({});
-
-  const aumentarCantidad = (id) => {
-    setCantidad(prev => ({
-      ...prev,
-      [id]: (prev[id] || 1) + 1,
-    }));
-  };
-
-  const disminuirCantidad = (id) => {
-    setCantidad(prev => ({
-      ...prev,
-      [id]: Math.max((prev[id] || 1) - 1, 1),
-    }));
-  };
+function ProductCard() {
+  const {products, addToCart, aumentarCantidad, disminuirCantidad, cantidad} = useContext(CartContext)
 
   return (
     <div className="equipo-container">
-      {productos.map((producto) => (
+      {products.map((producto) => (
         <div className="tarjeta" key={producto.id}>
           <Link to={`/detalleproducto/${producto.id}`} className="tarjeta-link">
             <img src={producto.imagen} alt={producto.nombre} className="tarjeta-imagen" />

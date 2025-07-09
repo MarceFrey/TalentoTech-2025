@@ -1,11 +1,14 @@
-import { useParams } from 'react-router-dom';
+import './DetalleProducto.css';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
-import './DetalleProducto.css';
+import { useParams } from 'react-router-dom';
+import { useContext } from 'react';
+import { CartContext } from '../../Context/CartContext';
 
-const DetalleProducto = ({ productos }) => {
+const DetalleProducto = () => {
+    const {products} = useContext(CartContext)
     const { id } = useParams();
-    const product = productos.find(producto => producto.id == id);
+    const product = products.find(producto => producto.id == id);
 
     return (
         <div className='detalle-container'>
@@ -19,7 +22,7 @@ const DetalleProducto = ({ productos }) => {
                 </div>
             ) : (
                 <p>Producto no encontrado</p>
-            )}
+                )}
             <Footer />
         </div>
     );

@@ -46,7 +46,7 @@
   font-size: 1.1rem;
   font-weight: 500;
   margin-bottom: 5px;
-  color: #fff; /* Blanco si usas fondo oscuro */
+  color: #000000; /* Blanco si usas fondo oscuro */
 }
 
 .tarjeta-precio {
@@ -90,4 +90,8 @@
 
 .tarjeta-boton:hover {
   background-color: #5a3401;
+}
+
+.tarjeta-stock{
+  color : #000000
 }

@@ -1,14 +1,14 @@
+import './Cart.css';
 import Header from '../../components/Header/Header'
 import Footer from '../../components/Footer/Footer'
 import Carrrito from '../../components/Carrito/Carrito'
-import './Cart.css';
 
-const Cart = ({ carrito, removeCart }) => {
+const Cart = () => {
   return (
     <div className='cart-background'>
       <Header />
       <div className='cart-content'>
-        <Carrrito cart={carrito} removeCart={removeCart} />
+        <Carrrito/>
       </div>
       <Footer />
     </div>

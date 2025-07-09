@@ -9,6 +9,7 @@ export const CartProvider = ({ children }) => {
     const [error, setError] = useState(null);
     const [cart, setCart] = useState([]);
     const [mensaje, setMensaje] = useState(null);
+    const [cantidad, setCantidad] = useState({});
 
     useEffect(() => {
         fetch('https://68367e13664e72d28e40fb4a.mockapi.io/productos-ecommerce/productos')
@@ -45,9 +46,24 @@ export const CartProvider = ({ children }) => {
         setCart(cart.filter(product => product.id !== id));
     };
 
+    const aumentarCantidad = (id) => {
+        setCantidad(prev => ({
+            ...prev,
+            [id]: (prev[id] || 1) + 1,
+        }));
+    };
+
+    const disminuirCantidad = (id) => {
+        setCantidad(prev => ({
+            ...prev,
+            [id]: Math.max((prev[id] || 1) - 1, 1),
+        }));
+    };
+    
 
     return (
-        <CartContext.Provider value={{ products, addToCart, error, loading, cart, removeCart, mensaje }}>
+        <CartContext.Provider value={{ products, addToCart, error, loading, cart, removeCart, 
+                                        mensaje, aumentarCantidad, disminuirCantidad, cantidad }}>
             {children}
         </CartContext.Provider>
     )

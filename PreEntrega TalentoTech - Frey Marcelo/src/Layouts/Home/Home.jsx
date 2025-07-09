@@ -1,16 +1,20 @@
+import './Home.css';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import ProductCard from '../../components/ProductCard/ProductCard';
-import './Home.css';
+import { useContext } from 'react';
+import { CartContext } from '../../Context/CartContext';
 
-const Home = ({ productos, addToCart, error, loading }) => {
+const Home = () => {
+  const {error , loading} = useContext(CartContext)
+
   return (
     <div className='home-background'>
       <Header />
       <div className='home-content'>
         {loading && <p>Cargando productos...</p>}
         {error && <p>{error}</p>}
-        <ProductCard productos={productos} addToCart={addToCart} />
+        <ProductCard />
       </div>
       <Footer />
     </div>
