@@ -3,12 +3,13 @@ import { useContext } from 'react';
 import { CartContext } from '../../Context/CartContext';
 
 function Cart() {
-  const {cart , removeCart} = useContext(CartContext)
+  const { cart, removeCart } = useContext(CartContext)
   return (
     <div>
-      <h2 className='title'>Carrito</h2>
       {cart.length === 0 ? (
-        <p className='empty_cart'>El carrito está vacío</p>
+        <div className="empty-container">
+          <p className="empty_cart">El carrito está vacío</p>
+        </div>
       ) : (
         <div className="carrito-grid">
           {cart.map((item, index) => (
