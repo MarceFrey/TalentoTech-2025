@@ -1,90 +1,78 @@
-import React, { useState, useEffect } from "react";
+import "./Admin.css";
 import FormularioProducto from "../../components/FormularioProducto/FormularioProducto";
-import './Admin.css';
+import FormularioEdicion from "../../components/FormularioEdicion/FormularioEdicion";
+import { useAuth } from "../../Context/AuthContext";
+import { useAdmin } from "../../Context/AdminContext";
 
 const Admin = () => {
-  const [productos, setProductos] = useState([]);
-  const [form, setForm] = useState({ id: null, name: "", price: "" });
-  const [loading, setLoading] = useState(true);
-  const [open, setOpen] = useState(false);
+  const { isAuth, setIsAuth } = useAuth();
+  const {
+    productos, loading, open, setOpen, seleccionado, setSeleccionado,
+    openEditor, setOpenEditor, cargarProductos,
+    agregarProducto, actulizarProducto, eliminarProducto} = useAdmin();
 
-  useEffect(() => {
-    fetch("https://68367e13664e72d28e40fb4a.mockapi.io/productos-ecommerce/productos")
-      .then((response) => response.json())
-      .then((data) => {
-        setTimeout(() => {
-          setProductos(data);
-          setLoading(false);
-        }, 2000);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-        setLoading(false);
-      });
-  }, []);
-
-  const agregarProducto = async (producto) => {
-    try {
-      const respuesta = await fetch('https://68367e13664e72d28e40fb4a.mockapi.io/productos-ecommerce/productos', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(producto)
-      });
-      if (!respuesta.ok) {
-        throw new Error('Error al agregar producto');
-      }
-      await respuesta.json();
-      alert('Producto agregado correctamente');
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
-
-  return (
+  
+    return (
     <div className="admin-container">
       {loading ? (
         <p>Cargando...</p>
       ) : (
-        <div >
+        <>
           <nav>
             <ul className="admin-nav">
-              <li className="admin-nav-item">
-                <button className="admin-nav-button">
+              <li className="admin-navItem">
+                <button
+                  className="admin-navButton"
+                  onClick={() => {
+                    setIsAuth(false);
+                    navigate("/");
+                    localStorage.removeItem("isAuth");
+                  }}
+                >
                   <i className="fa-solid fa-right-from-bracket"></i>
                 </button>
               </li>
-              <li className="admin-nav-item">
+              <li className="admin-navItem">
                 <a href="/admin">Admin</a>
               </li>
             </ul>
           </nav>
           <h1 className="admin-title">Panel Administrativo</h1>
-
           <ul className="admin-list">
             {productos.map((product) => (
-              <li key={product.id} className="admin-list-item">
-                <img
-                  src={product.imagen}
-                  alt={product.nombre}
-                  className="admin-list-image"
-                />
+              <li key={product.id} className="admin-listItem">
+                <img src={product.imagen} alt={product.nombre} className="admin-listItemImage" />
                 <span>{product.nombre}</span>
                 <span>${product.precio}</span>
                 <div>
-                  <button className="admin-edit-button">Editar</button>
-                  <button className="admin-delete-button">Eliminar</button>
+                  <button
+                    className="admin-editButton"
+                    onClick={() => {
+                      setOpenEditor(true);
+                      setSeleccionado(product);
+                    }}
+                  >
+                    Editar
+                  </button>
+                  <button className="admin-deleteButton" onClick={() => eliminarProducto(product.id)}>
+                    Eliminar
+                  </button>
                 </div>
               </li>
             ))}
           </ul>
-        </div>
+        </>
       )}
-      <button className="admin-add-button" onClick={() => setOpen(true)}>
+
+      <button className="admin-addButton" onClick={() => setOpen(true)}>
         Agregar producto nuevo
       </button>
+
       {open && <FormularioProducto onAgregar={agregarProducto} />}
+      {openEditor && <FormularioEdicion productoSeleccionado={seleccionado} onActualizar={actulizarProducto} />}
     </div>
   );
 };
 
 export default Admin;
+
