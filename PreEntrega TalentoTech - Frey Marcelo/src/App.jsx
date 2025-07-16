@@ -1,4 +1,5 @@
 import Home from './Layouts/Home/Home';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 import AcercaDe from './Layouts/SobreNosotros/SobreNosotros';
 import Contacto from './Layouts/Contacto/Contacto';
 import Cart from './Layouts/Cart/Cart';

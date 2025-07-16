@@ -1,19 +1,27 @@
-.admin-container {
-  min-height: 100vh;
-  padding: 40px;
+.admin-background {
   background-image: url('/portada2.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-container {
+  flex: 1;
+  padding: 40px;
   backdrop-filter: brightness(0.95);
   border-radius: 8px;
+  overflow-y: auto; /* para que el contenido tenga scroll */
 }
+
 
 .admin-title {
   text-align: center;
   font-size: 2rem;
-  color: #333;
+  color: #ffffff;
   margin-bottom: 30px;
 }
 

@@ -3,7 +3,7 @@
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 2rem;
   padding: 3rem 2rem;
-  background-color: #0000003a; /* Color más suave y cálido */
+  background-color: #0000003a; 
 }
 
 /* Tarjeta de producto */
