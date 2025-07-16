@@ -1,4 +1,4 @@
-import "./admin.css";
+import "./Admin.css";
 import FormularioProducto from "../../components/FormularioProducto/FormularioProducto";
 import FormularioEdicion from "../../components/FormularioEdicion/FormularioEdicion";
 import { useAuth } from "../../Context/AuthContext";
