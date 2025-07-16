@@ -14,7 +14,7 @@
   padding: 40px;
   backdrop-filter: brightness(0.95);
   border-radius: 8px;
-  overflow-y: auto; /* para que el contenido tenga scroll */
+  overflow-y: auto; 
 }
 
 

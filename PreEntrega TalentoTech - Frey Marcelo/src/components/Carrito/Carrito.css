@@ -10,7 +10,7 @@
 }
 
 .empty-container {
-  height: 60vh; /* o lo que necesites */
+  height: 60vh;
   display: flex;
   justify-content: center;
   align-items: center;
